@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= content_for(:title) || "Helper Test App" %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= yield :head %>
+
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" href="/icon.png" type="image/png">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/icon.png">
+    
+    <!-- Turbo via CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@hotwired/turbo@7.3.0/dist/turbo.es2017-umd.js"></script>
+    <script>
+      // Debug Turbo loading and events
+      document.addEventListener('DOMContentLoaded', function() {
+        console.log('🔍 Checking if Turbo is available:', typeof Turbo !== 'undefined' ? '✅ Available' : '❌ Not Available')
+        if (typeof Turbo !== 'undefined') {
+          console.log('🔍 Turbo object:', Turbo)
+        }
+      })
+    </script>
+    
+    <!-- Helper Widget -->
+    <script>
+      window.helperWidgetConfig = {
+        title: "Test Widget with Turbo",
+        iconColor: "#007bff"
+      }
+    </script>
+    <script src="https://helperai.dev/widget/sdk.js" data-mailbox="mailbox" data-delay-init></script>
+    <script>
+      document.addEventListener("turbo:load", async () => {
+        console.log("🚀 Turbo:load event fired!")
+        try {
+          if (typeof HelperWidget !== 'undefined') {
+            console.log("📦 Destroying and reinitializing Helper widget")
+            HelperWidget.destroy()
+            await HelperWidget.init(window.helperWidgetConfig)
+            console.log("✅ Helper widget reinitialized")
+          } else {
+            console.log("❌ HelperWidget not available")
+          }
+        } catch (error) {
+          console.error("Error during Turbo load:", error)
+        }
+      })
+      
+      document.addEventListener("turbo:visit", () => {
+        console.log("🔄 Turbo:visit event fired!")
+      })
+    </script>    
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>
