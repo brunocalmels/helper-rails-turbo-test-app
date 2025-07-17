@@ -16,15 +16,6 @@
     
     <!-- Turbo via CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@hotwired/turbo@7.3.0/dist/turbo.es2017-umd.js"></script>
-    <script>
-      // Debug Turbo loading and events
-      document.addEventListener('DOMContentLoaded', function() {
-        console.log('🔍 Checking if Turbo is available:', typeof Turbo !== 'undefined' ? '✅ Available' : '❌ Not Available')
-        if (typeof Turbo !== 'undefined') {
-          console.log('🔍 Turbo object:', Turbo)
-        }
-      })
-    </script>
     
     <!-- Helper Widget -->
     <script>
@@ -33,7 +24,8 @@
         iconColor: "#007bff"
       }
     </script>
-    <script src="https://helperai.dev/widget/sdk.js" data-mailbox="mailbox" data-delay-init></script>
+
+    <script src="https://help.gumroad.com/widget/sdk.js" data-mailbox="mailbox" data-delay-init></script>
     <script>
       document.addEventListener("turbo:load", async () => {
         console.log("🚀 Turbo:load event fired!")
