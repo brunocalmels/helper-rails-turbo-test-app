@@ -18,4 +18,4 @@ group :development do
   gem "web-console"
 end
 
-gem "importmap-rails", "~> 2.1"
+gem "importmap-rails", "~> 2.2"
