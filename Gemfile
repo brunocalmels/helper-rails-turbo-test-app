@@ -4,7 +4,7 @@ ruby file: ".ruby-version"
 
 gem "rails", "~> 7.2.2"
 gem "sqlite3", ">= 2.1", group: [:development, :test]
-gem "pg", "~> 1.1", group: :production
+gem "pg", "~> 1.6", group: :production
 gem "puma", ">= 5.0"
 gem "image_processing", "~> 1.2"
 
