@@ -6,7 +6,7 @@ gem "rails", "~> 7.2.2"
 gem "sqlite3", ">= 2.1", group: [:development, :test]
 gem "pg", "~> 1.1", group: :production
 gem "puma", ">= 5.0"
-gem "image_processing", "~> 1.2"
+gem "image_processing", "~> 1.14"
 
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
